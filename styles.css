@@ -80,8 +80,7 @@ body {
     max-width: 200px;
     scale: 0.8;
     pointer-events: none;
-    /* -webkit-filter: grayscale(100%) blur(5px);
-    filter: grayscale(100%) blur(1px); */
-    /* aspect-ratio: auto 480 / 720; */
+    -webkit-filter: grayscale(100%) blur(5px);
+    filter: grayscale(100%) blur(1px); 
     aspect-ratio: auto 200 / 150;
 }
