@@ -14,7 +14,7 @@ body {
     background: #fff;
     flex-direction: row;
     background-image: url("images/bg.png");
-    filter: blur(1px);
+    /* filter: blur(1px); */
 }
 
 .circular--portrait {
@@ -37,7 +37,7 @@ body {
   
   @keyframes glowShadow{
     to {
-      box-shadow: 0px 0px 30px 20px #6FC3DF;
+      box-shadow: 0px 0px 10px 5px #6FC3DF;
     }
   }
 
