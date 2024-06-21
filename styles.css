@@ -1,49 +1,67 @@
 * {
     margin: 0;
     padding: 0;
-    font-family: "Poppins", sans-serif;
     box-sizing: border-box;
-    pointer-events: none;
-}
-
-body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    background: #fff;
-    flex-direction: row;
-    background-image: url("images/bg.png");
-    /* filter: blur(1px); */
-}
-
-.circular--portrait {
-    position: relative;
-    width: 200px;
-    height: 200px;
-    overflow: hidden;
-    border-radius: 50%;
-    box-shadow: 0px 0px 9px 4px #6FC3DF;
-    animation: glowShadow 1.5s linear infinite alternate;
-    margin: 20px;
-}
-
-.circular--portrait img {
-    width: 100%;
-    height: auto;
-    animation: glowImage 1s linear infinite alternate;
-    
-}
+    /* pointer-events: none; */
+    /* user-select: none; */
+  }
   
-  @keyframes glowShadow{
+  body {
+    background: #f2f2f2;
+    background-image: url("images/bg.png");
+    
+  }
+  
+  @keyframes slide {
+    from {
+      transform: translateX(0);
+    }
     to {
-      box-shadow: 0px 0px 10px 5px #6FC3DF;
+      transform: translateX(-100%);
     }
   }
-
-  @keyframes glowImage{
-    to {
-      -webkit-filter: brightness(1);
-       filter: brightness(1);
-    }
+  
+  .logos {
+    overflow: hidden;
+    padding: 60px 0;
+    /* background: white; */
+    white-space: nowrap;
+    position: relative;
+  }
+  
+  .logos:before,
+  .logos:after {
+    position: absolute;
+    top: 0;
+    width: 250px;
+    height: 100%;
+    content: "";
+    z-index: 2;
+  }
+  
+  .logos:before {
+    left: 0;
+    background: linear-gradient(to left, rgba(255, 255, 255, 0), white);
+  }
+  
+  .logos:after {
+    right: 0;
+    background: linear-gradient(to right, rgba(255, 255, 255, 0), white);
+  }
+  
+  .logos:hover .logos-slide {
+    animation-play-state: paused;
+  }
+  
+  .logos-slide {
+    display: inline-block;
+    animation: 60s slide infinite linear;
+  }
+  
+  .logos-slide img {
+    height: 200px;
+    margin: 0 40px;
+    border-radius: 10px;
+    pointer-events: none;
+    user-select: none;
   }
