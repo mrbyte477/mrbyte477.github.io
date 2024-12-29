@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Samuel Joshua Akkidas</title>
     <link rel="stylesheet" href="./styles.css">
+    <script src="script.js" defer></script>
 </head>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-E044XC022R"></script>
@@ -20,49 +21,10 @@
 
 <body>
   <div class="banner">
-    "For God so loved the world, that he gave his only Son, that whoever believes in him should not perish but have eternal life." - John 3:16
+    <span class="bible-verse"></span>
   </div>
   <div class="logos">
-    <div class="logos-slide">
-      <img src="./images/1.jpg" />
-      <img src="./images/2.jpg" />
-      <img src="./images/3.jpg" />
-      <img src="./images/4.jpg" />
-      <img src="./images/5.jpg" />
-      <img src="./images/6.jpg" />
-      <img src="./images/7.jpg" />
-      <img src="./images/8.jpg" />
-      <img src="./images/9.jpg" />
-      <img src="./images/1.jpg" />
-      <img src="./images/2.jpg" />
-      <img src="./images/3.jpg" />
-      <img src="./images/4.jpg" />
-      <img src="./images/5.jpg" />
-      <img src="./images/6.jpg" />
-      <img src="./images/7.jpg" />
-      <img src="./images/8.jpg" />
-      <img src="./images/9.jpg" />
-    </div>
-
-    <div class="logos-slide">
-      <img src="./images/1.jpg" />
-      <img src="./images/2.jpg" />
-      <img src="./images/3.jpg" />
-      <img src="./images/4.jpg" />
-      <img src="./images/5.jpg" />
-      <img src="./images/6.jpg" />
-      <img src="./images/7.jpg" />
-      <img src="./images/8.jpg" />
-      <img src="./images/9.jpg" />
-      <img src="./images/1.jpg" />
-      <img src="./images/2.jpg" />
-      <img src="./images/3.jpg" />
-      <img src="./images/4.jpg" />
-      <img src="./images/5.jpg" />
-      <img src="./images/6.jpg" />
-      <img src="./images/7.jpg" />
-      <img src="./images/8.jpg" />
-      <img src="./images/9.jpg" />
+    <div class="logos-slide" id="logos-slide">
     </div>
   </div>
 
@@ -70,7 +32,7 @@
   <div class="pop-container">
     <div class="pop">
       <img
-      src="images/christmas.PNG"
+      src="images/photo.jpg"
       alt="card"/>
     </div>
 
@@ -82,41 +44,6 @@
   <audio id="backgroundMusic" loop autoplay>
     <source src="./images/mus.mp3" type="audio/mpeg">
   </audio>
-  <script src="game.js"></script>
-  <script>
-    async function fetchRandomVerse() {
-      // List of popular Bible verses
-      const verses = [
-        'john+3:16',
-        'jeremiah+29:11',
-        'philippians+4:13',
-        'psalm+23:1',
-        'romans+8:28',
-        'matthew+6:33',
-        'isaiah+41:10',
-        'romans+12:2',
-        'psalm+46:1'
-      ];
-      
-      try {
-        // Get random verse from the array
-        const randomVerse = verses[Math.floor(Math.random() * verses.length)];
-        const response = await fetch(`https://bible-api.com/${randomVerse}`);
-        const data = await response.json();
-        const verse = data.text;
-        const reference = data.reference;
-        document.querySelector('.banner').innerHTML = `"${verse}" - ${reference}`;
-      } catch (error) {
-        console.error('Error fetching verse:', error);
-        // Fallback to default verse if API fails
-        document.querySelector('.banner').innerHTML = '';
-      }
-    }
-
-    // Call when page loads
-    window.addEventListener('DOMContentLoaded', fetchRandomVerse);
-  </script>
-
 </body>
 
 </html>
