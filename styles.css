@@ -1,101 +1,95 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Inter,SourceSerifPro,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;
-    pointer-events: none;
-    user-select: none;
-  }
-  
-  body {
-    background: #f2f2f2;
-    background-image: url("images/bg.png");
-  }
-  
-  @keyframes slide {
-    from {
-      transform: translateX(0);
-    }
-    to {
-      transform: translateX(-50%);
-    }
-  }
-  
-  .logos {
-    overflow: hidden;
-    padding: 60px 0;
-    background: transparent;
-    white-space: nowrap;
-    position: relative;
-  }
-  
-  .logos:before,
-  .logos:after {
-    position: absolute;
-    top: 0;
-    width: 250px;
-    height: 100%;
-    content: "";
-    z-index: 2;
-  }
-  
-  .logos:before {
-    left: 0;
-    background: linear-gradient(to left, rgba(242, 242, 242, 0));
-  }
-  
-  .logos:after {
-    right: 0;
-    background: linear-gradient(to right, rgba(242, 242, 242, 0));
-  }
-  
-  .logos:hover .logos-slide {
-    animation-play-state: paused;
-  }
-  
-  .logos-slide {
-    display: inline-block;
-    animation: 35s slide infinite linear;
-  }
-  
-  .logos-slide img {
-    height: 200px;
-    margin: 0 40px;
-  }
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Ensign:Serif",McKay,"McKay ldsLat",Palatino,"Palatino Linotype",Palatino-Roman,serif;
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
 
-  .pop {
-    width: 100%;
-    height: 300px;
-    text-align: center;
-  }
-  .pop img {
-    height: 100%;
-    margin: auto;
-    display: block;
-  }
+img {
+  pointer-events: none;
+  user-drag: none;
+  -webkit-user-drag: none;
+  -moz-user-drag: none;
+  -ms-user-drag: none;
+}
 
-  .pop-container {
-    display: flex;
-    justify-content: center;
-    gap: 20px; /* Adjusts space between the divs */
-    margin: 20px;
-  }
+body {
+  background: #f2f2f2;
+  background-image: url("images/bg.png");
+}
 
-  .banner {
-    width: 100%;
-    height: 40px;
-    background-color: black;
-    color: rgb(255, 255, 255);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 100%;
-    padding: 20px;
-    white-space: nowrap;
-    overflow: hidden;
-    scrollbar-width: none;
-    position: relative;
-  }
+@keyframes slide {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
 
+@keyframes slide-reverse {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
+}
 
- 
+.logos {
+  overflow: hidden;
+  padding: 60px 0;
+  background: transparent;
+  white-space: nowrap;
+  position: relative;
+}
+
+.logos:before,
+.logos:after {
+  position: absolute;
+  top: 0;
+  width: 250px;
+  height: 100%;
+  content: "";
+  z-index: 2;
+}
+
+.logos:before {
+  left: 0;
+  background: linear-gradient(to left, rgba(242, 242, 242, 0));
+}
+
+.logos:after {
+  right: 0;
+  background: linear-gradient(to right, rgba(242, 242, 242, 0));
+}
+
+#logos-slide {
+  display: flex;
+  animation: slide 40s linear infinite;
+  will-change: transform;
+}
+
+#logos-slide-reverse {
+  display: flex;
+  animation: slide-reverse 40s linear infinite;
+  will-change: transform;
+}
+
+#logos-slide img,
+#logos-slide-reverse img {
+  flex: 0 0 auto;
+  width: 300px;
+  height: 250px;
+  object-fit: cover;
+  margin: 0 20px;
+  border-radius: 12px;
+  transition: transform 0.3s ease;
+}
+
+#logos-slide:hover,
+#logos-slide-reverse:hover {
+  animation-play-state: paused;
+}
+
+#logos-slide:hover img,
+#logos-slide-reverse:hover img {
+  transform: scale(1.05);
+}
